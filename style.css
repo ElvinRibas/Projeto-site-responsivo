@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.container {
+  min-height: 100vh; /*altura mínima para preencher toda a tela.*/
+  display: flex;
+  flex-direction: column; /*itens organizados em colunas.*/
+}
+
+/*Navbar*/
+
+
+/*Configurações superficiais da imagem e dos botões.*/
+
+.header {
+  width: 100%; /*largura do menu na tela.*/
+  min-height: 40px; /*irá aumentar a altura do header conforme for diminuindo a tela.*/
+  background-color: #292929;
+  display: flex;
+  align-items: center; /*alinhamento vertical.*/
+  justify-content: space-between; /*cria um espaço entre a imagem e os botões do menu.*/
+  flex-wrap: wrap; /*conforme for diminuindo a tela os itens do menu terão uma quebra.*/
+  padding: 30px;
+  gap: 8px 15px; /*evita que os itens do menu se toquem quando houver diminuição da tela, quando acontecer um ficará abaixo do outro.*/
+}
+
+.logoNavBar {
+  width: 180px; /*tamanho da imagem logo.*/
+}
+
+
+/*Configurações grupo dos botões.*/
+
+.headerBtnGroup {
+  display: flex;
+  gap: 15px; /*espaçamento entre os botões.*/
+}
+
+/*Configurações específicas dos botões.*/
+
+.navBtn {
+  font-size: 16px; /*tamanho das letras.*/
+  padding: 6px; /*tamanho da "caixa" dos botões.*/
+  background-color: transparent; /*fundo transparente*/
+  border: 2px solid transparent; /*borda transparente*/
+  color: white; /*cor da fonte*/
+  cursor: pointer; /*muda o cursor ao passar em cima*/
+  transition: 0.5s; /*o efeito do hover aparece em 0,5s*/
+}
+
+.navBtn:hover {
+  border-bottom: 2px solid black; /*aparece borda preta abaixo das palavras*/
+  color: rgb(196, 30, 30);
+}
+
+/*Título e descrição*/
+
+.sectionTitle {
+  font-size: 26px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sectionDescription {
+  text-align: center;
+  color: #383838;
+}
+
+/*Conteúdo principal e secundário.*/
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /*divide a tela deixando 3 frames de espaço para o conteúdo principal e 1 frame para o secundário. */
+  grid-template-areas: "mainContent sidebarContent";/*define as grid areas.*/
+  padding: 20px;
+  flex: 1 0 auto; /*para preencher todo o espaço disponível.*/
+}
+
+
+/*Título das imagens*/
+
+.mainCategoryCardTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 6px;
+}
+
+/*Conteúdo principal*/
+
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  grid-area: mainContent;
+}
+
+/*Configuração específicas das imagens do conteúdo principal.*/
+
+.categoryCard {
+  width: 280px;
+  height: 380px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.categoryCard:hover {
+  border-color: black;
+}
+
+.mainCardImg {
+  width: 100%; /*largura: apenas há necessidade da largura ser responsiva por isso está em %.*/
+  height: 180px; /*altura*/
+  border-radius: 10px; /*deixa as imagens com o canto arredondado*/
+}
+
+/*Conteúdo secundário*/
+
+.sidebarContent {
+  background-color: #383838;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px; /*largura mínima para diminuição das imagens. */
+  grid-area: sidebarContent;
+  gap: 20px;
+}
+
+/*Configurações superficiais das imagens do conteúdo secundário.*/
+
+.sidebarCard {
+  width: 75%;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.sidebarCard:hover {
+  border-color: gainsboro;
+}
+
+/* Configuração específica das imagens*/
+
+.sidebarCardImg {
+  width: 100%;
+  border-radius: 10px;  
+}
+
+
+.sidebarCardTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+/*Configuração rodapé.*/
+
+.footer {
+  width: 100%;
+  min-height: 40px;
+  background-color: #292929;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 15px;
+}
+
+.logoFooter {
+  width: 180px;
+ }
+
+.footerAnchor {
+  color: white;
+  text-decoration: none; /*remove o sublinhado.*/
+}
+
+/*configurações de responsividade*/
+
+@media (max-width: 630px){ /*configurações para largura de 630px de tela.*/
+  .gridContainer {
+    grid-template-areas: 
+    "mainContent"
+  "sidebarContent";
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 10px;
+  }
+
+  .sidebarContent {
+    min-width: auto;
+  }
+
+  .footerAnchor {
+    font-size: 19px;
+  }
+}
+
+@media(max-width: 463px){ /*Configurações para 463px de largura da tela.*/
+  .header {
+    justify-content: center;
+  }
+
+  .footer {
+    justify-content: center;
+  }
+}
+
+
+
